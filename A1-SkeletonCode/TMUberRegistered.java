@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+
+public class TMUberRegistered
+{
+    // These variables are used to generate user account and driver ids
+    private static int firstUserAccountID = 9000-1;
+    private static int firstDriverId = 7000-1;
+
+    private static int userCount = 0; // Initialize with 10 since there are already 10 pre-registered users
+    private static int driverCount = 0;
+
+    // Generate a new user account id
+    public static String generateUserAccountId(ArrayList<User> current)
+    {
+        userCount++;
+        return String.valueOf(firstUserAccountID + userCount);
+    }
+
+    // Generate a new driver id
+    public static String generateDriverId(ArrayList<Driver> drivers)
+    {
+        driverCount++;
+        return String.valueOf(firstDriverId + driverCount);
+    }
+
+    // Database of Preregistered users
+    // In Assignment 2 these will be loaded from a file
+    // The test scripts and test outputs included with the skeleton code use these
+    // users and drivers below. You may want to work with these to test your code (i.e. check your output with the
+    // sample output provided). 
+    public static void loadPreregisteredUsers(ArrayList<User> users)
+    {
+        users.add(new User(generateUserAccountId(users), "McInerney, T.", "34 5th Street", 25));
+        users.add(new User(generateUserAccountId(users), "Valenzano, R.", "71 1st Street", 55));
+        users.add(new User(generateUserAccountId(users), "Lugez, E.", "55 9th Avenue", 125));
+        users.add(new User(generateUserAccountId(users), "Miranskyy, A.", "15 2nd Avenue", 15));
+        users.add(new User(generateUserAccountId(users), "Raman, P.", "32 3rd Street", 13));
+        users.add(new User(generateUserAccountId(users), "Woungang, I.", "64 6th Avenue", 27));
+        users.add(new User(generateUserAccountId(users), "Soutchanski, M.", "28 7th Avenue", 22));
+        users.add(new User(generateUserAccountId(users), "Harley, E.", "10 7th Avenue", 34));
+        users.add(new User(generateUserAccountId(users), "Mason, D.", "48 8th Street", 11));
+        users.add(new User(generateUserAccountId(users), "Santos, M.", "83 4th Street", 41));
+    }
+
+    // Database of Preregistered users
+    // In Assignment 2 these will be loaded from a file
+    public static void loadPreregisteredDrivers(ArrayList<Driver> drivers)
+    {
+        drivers.add(new Driver(generateDriverId(drivers), "Tom Cruise", "Toyota Corolla", "MAVERICK"));
+        drivers.add(new Driver(generateDriverId(drivers), "Brad Pitt",  "Audi S4", "FGDR 983"));
+        drivers.add(new Driver(generateDriverId(drivers), "Millie Brown",  "Tesla", "STRNGRTHGS"));
+        drivers.add(new Driver(generateDriverId(drivers), "Tim Chalamet",  "Thopter", "DUNE"));
+        drivers.add(new Driver(generateDriverId(drivers), "John Boyega",  "X-Wing", "REBEL"));
+    }
+}
+
